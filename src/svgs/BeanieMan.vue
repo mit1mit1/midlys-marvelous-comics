@@ -1,9 +1,13 @@
 <script>
+import { limbPositions } from "../limbPositions";
+
 const getLineEnd = (x1, y1, lineXPercent, lineYUp, lineLength) => {
     const x2 = x1 + lineXPercent * lineLength;
     const y2 = y1 + Math.sqrt(1 - lineXPercent * lineXPercent) * lineLength * (lineYUp ? -1 : 1);
     return [x2, y2]
 }
+
+
 export default {
     props: {
         minimumX: {
@@ -22,6 +26,9 @@ export default {
             type: Number,
             default: 400,
         },
+        expression: {
+            type: String,
+        }
     },
     data() {
         const headX = this.minimumX + this.lengthX / 10;
@@ -32,34 +39,6 @@ export default {
         const beanieFoldHeight = this.lengthY / 15;
         const beanieFoldY = headY;
         const beanieStripeHeight = beanieFoldHeight / 5;
-        const leftArmPosition = {
-            elbowXPercent: -0.3,
-            elbowYUp: false,
-            wristXPercent: -0.2,
-            wristYUp: false,
-            fingertipXPercent: 0.4,
-            fingertipYUp: true,
-        }
-        const rightArmPosition = {
-            elbowXPercent: 0.5,
-            elbowYUp: false,
-            wristXPercent: 0.2,
-            wristYUp: false,
-            fingertipXPercent: 0.4,
-            fingertipYUp: false,
-        }
-        const leftLegPosition = {
-            kneeXPercent: -0.3,
-            kneeYUp: false,
-            ankleXPercent: -0.2,
-            ankleYUp: false,
-        }
-        const rightLegPosition = {
-            kneeXPercent: 0.2,
-            kneeYUp: false,
-            ankleXPercent: 0.2,
-            ankleYUp: false,
-        }
         const bodyLength = this.lengthY / 10 * 3;
         const bodyTopY = headY + headHeight;
         const bodyY2 = bodyTopY + bodyLength;
@@ -67,10 +46,10 @@ export default {
         const lowerArmLength = bodyLength * 0.51;
         const upperLegLength = bodyLength * 0.58;
         const lowerLegLength = bodyLength * 0.58;
-        const handLength = bodyLength * 0.2;
+        const handLength = bodyLength * 0.14;
         const upperArmX1 = headCentreX;
-        const upperArmY1 = bodyTopY + 0.2 * bodyLength;
-        const upperLegX1 = headCentreX;
+        const upperArmY1 = bodyTopY + 0.26 * bodyLength;
+        const { rightArmPosition, leftArmPosition, rightLegPosition, leftLegPosition } = limbPositions.hasOwnProperty(this.expression) ? { ...limbPositions[this.expression] } : { ...limbPositions["handsDown"]};
         const [rightUpperArmX2, rightUpperArmY2] = getLineEnd(upperArmX1, upperArmY1, rightArmPosition.elbowXPercent, rightArmPosition.elbowYUp, upperArmLength);
         const [leftUpperArmX2, leftUpperArmY2] = getLineEnd(upperArmX1, upperArmY1, leftArmPosition.elbowXPercent, leftArmPosition.elbowYUp, upperArmLength);
         const [rightLowerArmX2, rightLowerArmY2] = getLineEnd(rightUpperArmX2, rightUpperArmY2, rightArmPosition.wristXPercent, rightArmPosition.wristYUp, lowerArmLength);
@@ -88,17 +67,17 @@ export default {
             headWidth,
             headHeight,
             beanieSquareX: headX + headWidth / 2,
-            beanieFoldX: this.minimumX + this.lengthX / 15,
+            beanieFoldX: this.minimumX + this.lengthX / 20,
             beanieFoldY,
             beanieStripe1Y: beanieFoldY + beanieStripeHeight,
             beanieStripe2Y: beanieFoldY + beanieStripeHeight * 3,
             beanieFoldHeight,
             beanieStripeHeight,
-            beanieFoldWidth: this.lengthX / 15 * 13,
-            beanieEllipseRadiusX: this.lengthX / 15 * 11 / 2,
+            beanieFoldWidth: this.lengthX / 20 * 18,
+            beanieEllipseRadiusX: this.lengthX / 15 * 12 / 2,
             beanieCentreX: headCentreX,
-            beanieEllipseCentreY: beanieFoldY,
-            beanieEllipseRadiusY: beanieFoldHeight * 13 / 20,
+            beanieEllipseCentreY: beanieFoldY + beanieFoldHeight * 2 / 20,
+            beanieEllipseRadiusY: beanieFoldHeight * 12 / 20,
             bodyX1: headCentreX,
             bodyX2: headCentreX,
             bodyY1: bodyTopY,
@@ -150,25 +129,26 @@ export default {
         :transform="`rotate(45 ${beanieSquareX + beanieSquareWidth / 2} ${beanieSquareY + beanieSquareWidth / 2})`"
         fill="black">
     </rect> -->
-    <line class="stick-torso" :x1="bodyX1" :y1="bodyY1" :x2="bodyX2" :y2="bodyY2" stroke-width="2" stroke="black"></line>
-    <line class="stick-upper-arm-right" :x1="upperArmX1" :y1="upperArmY1" :x2="rightUpperArmX2" :y2="rightUpperArmY2"
+    <line stroke-linejoin="round" class="stick-torso" :x1="bodyX1" :y1="bodyY1" :x2="bodyX2" :y2="bodyY2" stroke-width="2" stroke="black">
+    </line>
+    <line stroke-linejoin="round" class="stick-upper-arm-right" :x1="upperArmX1" :y1="upperArmY1" :x2="rightUpperArmX2" :y2="rightUpperArmY2"
         stroke-width="2" stroke="black"></line>
-    <line class="stick-upper-arm-left" :x1="upperArmX1" :y1="upperArmY1" :x2="leftUpperArmX2" :y2="leftUpperArmY2"
+    <line stroke-linejoin="round" class="stick-upper-arm-left" :x1="upperArmX1" :y1="upperArmY1" :x2="leftUpperArmX2" :y2="leftUpperArmY2"
         stroke-width="2" stroke="black"></line>
-    <line class="stick-lower-arm-right" :x1="rightUpperArmX2" :y1="rightUpperArmY2" :x2="rightLowerArmX2"
+    <line stroke-linejoin="round" class="stick-lower-arm-right" :x1="rightUpperArmX2" :y1="rightUpperArmY2" :x2="rightLowerArmX2"
         :y2="rightLowerArmY2" stroke-width="2" stroke="black"></line>
-    <line class="stick-lower-arm-left" :x1="leftUpperArmX2" :y1="leftUpperArmY2" :x2="leftLowerArmX2"
+    <line stroke-linejoin="round" class="stick-lower-arm-left" :x1="leftUpperArmX2" :y1="leftUpperArmY2" :x2="leftLowerArmX2"
         :y2="leftLowerArmY2" stroke-width="2" stroke="black"></line>
-    <line class="stick-hand-right" :x1="rightLowerArmX2" :y1="rightLowerArmY2" :x2="rightHandX2" :y2="rightHandY2"
+    <line stroke-linejoin="round" class="stick-hand-right" :x1="rightLowerArmX2" :y1="rightLowerArmY2" :x2="rightHandX2" :y2="rightHandY2"
         stroke-width="2" stroke="black"></line>
-    <line class="stick-hand-left" :x1="leftLowerArmX2" :y1="leftLowerArmY2" :x2="leftHandX2" :y2="leftHandY2"
+    <line stroke-linejoin="round" class="stick-hand-left" :x1="leftLowerArmX2" :y1="leftLowerArmY2" :x2="leftHandX2" :y2="leftHandY2"
         stroke-width="2" stroke="black"></line>
-    <line class="stick-upper-leg-right" :x1="bodyX1" :y1="bodyY2" :x2="rightUpperLegX2" :y2="rightUpperLegY2"
+    <line stroke-linejoin="round" class="stick-upper-leg-right" :x1="bodyX1" :y1="bodyY2" :x2="rightUpperLegX2" :y2="rightUpperLegY2"
         stroke-width="2" stroke="black"></line>
-    <line class="stick-upper-leg-left" :x1="bodyX1" :y1="bodyY2" :x2="leftUpperLegX2" :y2="leftUpperLegY2"
+    <line stroke-linejoin="round" class="stick-upper-leg-left" :x1="bodyX1" :y1="bodyY2" :x2="leftUpperLegX2" :y2="leftUpperLegY2"
         stroke-width="2" stroke="black"></line>
-    <line class="stick-lower-leg-right" :x1="rightUpperLegX2" :y1="rightUpperLegY2" :x2="rightLowerLegX2"
+    <line stroke-linejoin="round" class="stick-lower-leg-right" :x1="rightUpperLegX2" :y1="rightUpperLegY2" :x2="rightLowerLegX2"
         :y2="rightLowerLegY2" stroke-width="2" stroke="black"></line>
-    <line class="stick-lower-leg-left" :x1="leftUpperLegX2" :y1="leftUpperLegY2" :x2="leftLowerLegX2"
+    <line stroke-linejoin="round" class="stick-lower-leg-left" :x1="leftUpperLegX2" :y1="leftUpperLegY2" :x2="leftLowerLegX2"
         :y2="leftLowerLegY2" stroke-width="2" stroke="black"></line>
 </template>

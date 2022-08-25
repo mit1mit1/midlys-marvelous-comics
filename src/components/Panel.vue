@@ -12,5 +12,7 @@
     max-width: 350px;
     min-width: 290px;
     display: inline-block;
+    font-family: Indie Flower;
+    font-size: 32px;
 }
 </style>

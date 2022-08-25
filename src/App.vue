@@ -15,6 +15,8 @@ import Intro from './comics/Intro.vue';
 <style>
 h1 {
     text-align: center;
+    font-family: monospace;
+    font-weight: normal;
 }
 
 .comic-box {
