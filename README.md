@@ -1,10 +1,6 @@
 # midlys-comics
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+View the comics at https://mit1mit1.github.io/midlys-marvelous-comics/dist/index.html. This project was set up with Vite - so far, it's pretty fun.
 
 ## Customize configuration
 
