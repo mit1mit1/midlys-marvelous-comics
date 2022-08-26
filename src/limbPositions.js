@@ -216,4 +216,35 @@ export const limbPositions = {
       ankleYUp: false,
     },
   },
+
+  handsFolded: {
+    leftArmPosition: {
+      elbowXPercent: -0.6,
+      elbowYUp: false,
+      wristXPercent: 0.98,
+      wristYUp: true,
+      fingertipXPercent: 0.98,
+      fingertipYUp: false,
+    },
+    rightArmPosition: {
+      elbowXPercent: 0.6,
+      elbowYUp: false,
+      wristXPercent: -0.98,
+      wristYUp: true,
+      fingertipXPercent: -0.98,
+      fingertipYUp: false,
+    },
+    leftLegPosition: {
+      kneeXPercent: -0.3,
+      kneeYUp: false,
+      ankleXPercent: -0.2,
+      ankleYUp: false,
+    },
+    rightLegPosition: {
+      kneeXPercent: 0.3,
+      kneeYUp: false,
+      ankleXPercent: 0.2,
+      ankleYUp: false,
+    },
+  },
 };

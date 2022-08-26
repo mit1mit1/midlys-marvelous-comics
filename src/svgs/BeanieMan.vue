@@ -28,6 +28,14 @@ export default {
         },
         expression: {
             type: String,
+        },
+        beanieColor: {
+            type: String,
+            default: 'yellow',
+        },
+        beanieStripeColor: {
+            type: String,
+            default: 'black',
         }
     },
     data() {
@@ -67,13 +75,13 @@ export default {
             headWidth,
             headHeight,
             beanieSquareX: headX + headWidth / 2,
-            beanieFoldX: this.minimumX + this.lengthX / 20,
+            beanieFoldX: this.minimumX + this.lengthX / 40,
             beanieFoldY,
             beanieStripe1Y: beanieFoldY + beanieStripeHeight,
             beanieStripe2Y: beanieFoldY + beanieStripeHeight * 3,
             beanieFoldHeight,
             beanieStripeHeight,
-            beanieFoldWidth: this.lengthX / 20 * 18,
+            beanieFoldWidth: this.lengthX / 40 * 38,
             beanieEllipseRadiusX: this.lengthX / 15 * 12 / 2,
             beanieCentreX: headCentreX,
             beanieEllipseCentreY: beanieFoldY + beanieFoldHeight * 2 / 20,
@@ -118,16 +126,16 @@ export default {
         stroke-width="2" fill="transparent">
     </rect>
     <rect class="beanie-fold" :x="beanieFoldX" :y="beanieFoldY" :height="beanieFoldHeight" :width="beanieFoldWidth"
-        rx="8" fill="yellow"></rect>
+        rx="8" :fill="beanieColor"></rect>
     <ellipse class="beanie-ellipse" :cx="beanieCentreX" :cy="beanieEllipseCentreY" :rx="beanieEllipseRadiusX"
-        :ry="beanieEllipseRadiusY" fill="yellow"></ellipse>
+        :ry="beanieEllipseRadiusY" :fill="beanieColor"></ellipse>
     <rect class="beanie-stripe" :x="beanieFoldX" :y="beanieStripe1Y" :height="beanieStripeHeight"
-        :width="beanieFoldWidth" rx="2" fill="black"></rect>
+        :width="beanieFoldWidth" rx="2" :fill="beanieStripeColor"></rect>
     <rect class="beanie=stripe" :x="beanieFoldX" :y="beanieStripe2Y" :height="beanieStripeHeight"
-        :width="beanieFoldWidth" rx="2" fill="black"></rect>
+        :width="beanieFoldWidth" rx="2" :fill="beanieStripeColor"></rect>
     <!-- <rect :x="beanieSquareX" :y="beanieSquareY" :width="beanieSquareWidth" :height="beanieSquareWidth"
         :transform="`rotate(45 ${beanieSquareX + beanieSquareWidth / 2} ${beanieSquareY + beanieSquareWidth / 2})`"
-        fill="black">
+        :fill="beanieStripeColor">
     </rect> -->
     <line stroke-linejoin="round" class="stick-torso" :x1="bodyX1" :y1="bodyY1" :x2="bodyX2" :y2="bodyY2" stroke-width="2" stroke="black">
     </line>

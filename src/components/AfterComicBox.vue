@@ -10,6 +10,7 @@
     margin-right: auto;
     max-width: 620px;
     padding: 30px;
+    margin-top: 30px;
     margin-bottom: 30px;
     background-color: #ddd;
     font-family: Montserrat;

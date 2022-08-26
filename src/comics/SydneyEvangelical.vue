@@ -8,26 +8,24 @@ import NavigationBar from '../components/NavigationBar.vue';
 </script>
 
 <template>
-  <ComicTitle>Many Meetings</ComicTitle>
+  <ComicTitle>Sydney Evangelicals</ComicTitle>
   <NavigationBar />
   <ComicBox>
     <Panel>
-      <BeanieMan :minimumX="70" :minimumY="50" expression="leftHandWave" />
-      <text x="185" y="100">HEY THERE!</text>
-      <text x="185" y="140">IF YOU'RE WONDERING</text>
-      <text x="185" y="180">WHO THE STRANGE,</text>
-      <text x="185" y="220">BEANIE-WEARING</text>
-      <text x="185" y="260">STICK FIGURE IS,</text>
-      <text x="185" y="300">I'M MIDLY.</text>
+      <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360" expression="handsFolded" beanieColor="#44d"
+        beanieStripeColor="#bbb" />
+      <text x="170" y="100">IF I HAD TO SUMMARIZE</text>
+      <text x="170" y="140">THE EVANGELICAL</text>
+      <text x="170" y="180">WORLDVIEW, I'D GIVE</text>
+      <text x="170" y="220">THREE POINTS.</text>
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="50" :minimumY="50" expression="rightHandPointUp" />
-      <text x="185" y="100">IF YOU'RE WONDERING</text>
-      <text x="185" y="140">WHAT "MITT" IS, THAT</text>
-      <text x="185" y="180">WOULD BE "MIDLY'S</text>
-      <text x="185" y="220">IDEOLOGICAL TURING</text>
-      <text x="185" y="260">TEST".</text>
+      <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360" expression="rightHandPointUp"
+        beanieColor="#44d" beanieStripeColor="#bbb" />
+      <text x="170" y="100">1. WHAT IS THE BIBLE?</text>
+      <text x="170" y="140">2. WHO ARE PEOPLE?</text>
+      <text x="170" y="180">3. WHO IS JESUS?</text>
     </Panel>
 
     <Panel>
@@ -92,9 +90,7 @@ import NavigationBar from '../components/NavigationBar.vue';
   </ComicBox>
   <NavigationBar />
   <AfterComicBox>
-    <p>Hey hey, welcome to the first post-comic text! I'll stick any necessary explanations or useful links here, as
-      well as a note if I've edited the comic. I'll also leave a link to a discussion thread. In this case:</p>
     <p>Join the discussion at <a
-        href="https://www.reddit.com/r/mitt_comics/comments/wxv4ah/comic_1_many_meetings/">Reddit</a>.</p>
+        href="https://www.reddit.com/r/mitt_comics/comments/wxv4ah/comic_2_sydney_evangelicals/">Reddit</a>.</p>
   </AfterComicBox>
 </template>
