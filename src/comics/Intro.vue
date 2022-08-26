@@ -2,6 +2,7 @@
 import BeanieMan from '../svgs/BeanieMan.vue';
 import Panel from '../components/Panel.vue';
 import ComicBox from '../components/ComicBox.vue';
+import AfterComicBox from '../components/AfterComicBox.vue';
 import ComicTitle from '../components/ComicTitle.vue';
 </script>
 
@@ -87,4 +88,9 @@ import ComicTitle from '../components/ComicTitle.vue';
       <text x="170" y="420">SOME READERS TOO.</text>
     </Panel>
   </ComicBox>
+  <AfterComicBox>
+    <p>Hey hey, welcome to the first post-comic text! I'll stick any necessary explanations or useful links here, as well as a note if I've edited the comic. I'll also leave a link to a discussion thread. In this case:</p>
+    <p>Join the discussion at <a
+        href="https://www.reddit.com/r/mitt_comics/comments/wxv4ah/comic_1_many_meetings/">Reddit</a>.</p>
+  </AfterComicBox>
 </template>
