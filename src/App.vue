@@ -2,7 +2,7 @@
 import Intro from './comics/Intro.vue';
 const comicParam = new URLSearchParams(window.location.search).get('comic');
 let comic = "";
-if (comicParam.toLowerCase() === "intro" || parseInt(comicParam) === 1) {
+if (comicParam?.toLowerCase() === "intro" || parseInt(comicParam) === 1 || !comicParam) {
     comic = 1;
 }
 function data() {
