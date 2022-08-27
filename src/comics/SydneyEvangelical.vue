@@ -5,10 +5,11 @@ import ComicBox from '../components/ComicBox.vue';
 import AfterComicBox from '../components/AfterComicBox.vue';
 import ComicTitle from '../components/ComicTitle.vue';
 import NavigationBar from '../components/NavigationBar.vue';
+import Bible from '../svgs/Bible.vue';
 </script>
 
 <template>
-  <ComicTitle>Sydney Evangelicals</ComicTitle>
+  <ComicTitle>Sydney Evangelicals: What</ComicTitle>
   <NavigationBar />
   <ComicBox>
     <Panel>
@@ -29,51 +30,61 @@ import NavigationBar from '../components/NavigationBar.vue';
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="50" :minimumY="50" expression="handsDown" />
-      <text x="185" y="100">AN "IDEOLOGY" IS A</text>
-      <text x="185" y="140">BUNCH OF IDEAS</text>
-      <text x="185" y="180">SOMEONE BELIEVES.</text>
-      <text x="185" y="220"></text>
-      <text x="185" y="260">THE IDEA OF THE</text>
-      <text x="185" y="300">TURING TEST IS TO</text>
-      <text x="185" y="340">EXPLAIN THOSE IDEAS</text>
-      <text x="185" y="380">AS IF YOU BELIEVE</text>
-      <text x="185" y="420">THEM.</text>
+      <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360" expression="rightHandHoldingMid"
+        beanieColor="#44d" beanieStripeColor="#bbb" />
+      <Bible :minimumX="153" :minimumY="287" :rotation="10" />
+      <text x="60" y="100">1. WHAT IS THE BIBLE?</text>
+      <text x="170" y="140"></text>
+      <text x="170" y="180">THE TRUE AND</text>
+      <text x="170" y="220">AUTHORITATIVE WORD</text>
+      <text x="170" y="260">OF GOD.</text>
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="70" :minimumY="50" expression="shrug" />
-      <text x="205" y="100">OF COURSE, JUST</text>
-      <text x="205" y="140">LIKE A CHATBOT</text>
-      <text x="205" y="180">TRYING TO PASS</text>
-      <text x="205" y="220">THE REAL TURING</text>
-      <text x="205" y="260">TEST, I'M BOUND TO</text>
-      <text x="205" y="300">HAVE GAPS AND</text>
-      <text x="205" y="340">GAFFS AT FIRST.</text>
+      <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360" expression="rightHandHoldingDown"
+        beanieColor="#44d" beanieStripeColor="#bbb" />
+      <Bible :minimumX="158" :minimumY="327" :rotation="45" />
+      <text x="120" y="100">WE KNOW THAT THE BIBLE</text>
+      <text x="145" y="140">WAS WRITTEN BY MANY</text>
+      <text x="170" y="180">HUMAN AUTHORS, IN</text>
+      <text x="170" y="220">VARIOUS GENRES, FOR</text>
+      <text x="170" y="260">SPECIFIC READERS.</text>
+      <text x="170" y="300"></text>
+      <text x="235" y="340">BUT WE ALSO</text>
+      <text x="235" y="380">KNOW GOD USED</text>
+      <text x="235" y="420">THOSE AUTHORS</text>
+      <text x="235" y="460">TO SPEAK TRUTH.</text>
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="70" :minimumY="50" expression="excited" />
-      <text x="205" y="100">TO THAT END,</text>
-      <text x="205" y="140">FEEDBACK IS VERY</text>
-      <text x="205" y="180">WELCOME! COMICS WILL</text>
-      <text x="205" y="220">COME WITH A LINK</text>
-      <text x="205" y="260">TO A DISCUSSION</text>
-      <text x="205" y="300">THREAD, WHERE ANY</text>
-      <text x="205" y="340">COMMENTS ARE</text>
-      <text x="205" y="380">APPRECIATED.</text>
+      <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360" expression="rightHandHoldingMid"
+        beanieColor="#44d" beanieStripeColor="#bbb" />
+      <Bible :minimumX="153" :minimumY="287" :rotation="10" />
+      <text x="120" y="100">TO UNDERSTAND WHAT</text>
+      <text x="145" y="140">THE BIBLE SAYS, WE</text>
+      <text x="165" y="180">NEED TO CONSIDER</text>
+      <text x="165" y="220">CONTEXT, GENRE, AND</text>
+      <text x="165" y="260">THE ORIGINAL READERS.</text>
+      <text x="165" y="300"></text>
+      <text x="235" y="340">BUT ONCE WE</text>
+      <text x="235" y="380">HAVE DONE THIS,</text>
+      <text x="235" y="420">WE TAKE WHAT IT</text>
+      <text x="235" y="460">SAYS AS TRUTH.</text>
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="70" :minimumY="50" expression="handsDown" />
-      <text x="205" y="100">ALSO, IF I MAKE ANY</text>
-      <text x="205" y="140">CHANGES TO THE</text>
-      <text x="205" y="180">COMICS IN LIGHT OF</text>
-      <text x="205" y="220">FEEDBACK, YOU'LL</text>
-      <text x="205" y="260">BE ABLE TO SEE</text>
-      <text x="205" y="300">THE EDIT HISTORY</text>
-      <text x="205" y="340">ON GITHUB.</text>
+      <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360" expression="rightHandHoldingMid"
+        beanieColor="#44d" beanieStripeColor="#bbb" />
+      <text x="60" y="100">2. WHO ARE PEOPLE?</text>
+      <text x="170" y="140"></text>
+      <text x="170" y="180">GOD'S BEAUTIFUL</text>
+      <text x="170" y="220">CREATION, WHO ARE</text>
+      <text x="170" y="260">ENSTRANGED FROM</text>
+      <text x="230" y="300">THEIR CREATOR.</text>
+      <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360" expression="rightHandHoldingMid"
+        beanieColor="#44d" beanieStripeColor="#bbb" />
     </Panel>
+
 
     <Panel>
       <BeanieMan :minimumX="55" :minimumY="160" :lengthX="75" :lengthY="300" expression="rightHandWave" />

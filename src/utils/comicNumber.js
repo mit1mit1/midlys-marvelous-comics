@@ -1,34 +1,31 @@
-export const maxComicNumber = 2;
+export const comicList = ["intro", "sydney_evangelical"];
 
 export const getComicNumber = () => {
   const comicParam = new URLSearchParams(window.location.search).get("comic");
-  let comic = maxComicNumber;
   if (
-    comicParam?.toLowerCase() === "intro" ||
-    parseInt(comicParam) === 1 ||
-    !comicParam
+    comicParam &&
+    parseInt(comicParam) >= 0 &&
+    parseInt(comicParam) < comicList.length
   ) {
-    comic = 1;
+    return comicParam;
   }
-  if (
-    comicParam?.toLowerCase() === "sydneyEvangelical" ||
-    parseInt(comicParam) === 2
-  ) {
-    comic = 2;
+  if (comicList.includes(comicParam?.toLowerCase())) {
+    return comicList.indexOf(comicParam.toLowerCase());
   }
-  return comic;
+  return comicList.length - 1;
 };
 
-export const setComicNumber = (comic) => {
-  if (comic < 1) {
-    comic = 1;
+export const setComic = (comicNumber) => {
+  comicNumber = Math.floor(comicNumber);
+  if (comicNumber < 0) {
+    comicNumber = 0;
   }
-  if (comic > maxComicNumber) {
-    comic = maxComicNumber;
+  if (comicNumber > comicList.length - 1) {
+    comicNumber = comicList.length - 1;
   }
   if ("URLSearchParams" in window) {
     var searchParams = new URLSearchParams(window.location.search);
-    searchParams.set("comic", comic);
+    searchParams.set("comic", comicList[comicNumber]);
     window.location.search = searchParams.toString();
   }
 };

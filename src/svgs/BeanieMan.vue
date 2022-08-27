@@ -1,5 +1,6 @@
 <script>
 import { limbPositions } from "../limbPositions";
+import Beanie from "./Beanie.vue";
 
 const getLineEnd = (x1, y1, lineXPercent, lineYUp, lineLength) => {
     const x2 = x1 + lineXPercent * lineLength;
@@ -31,11 +32,11 @@ export default {
         },
         beanieColor: {
             type: String,
-            default: 'yellow',
+            default: "yellow",
         },
         beanieStripeColor: {
             type: String,
-            default: 'black',
+            default: "black",
         }
     },
     data() {
@@ -46,7 +47,6 @@ export default {
         const headCentreX = headX + headWidth / 2;
         const beanieFoldHeight = this.lengthY / 15;
         const beanieFoldY = headY;
-        const beanieStripeHeight = beanieFoldHeight / 5;
         const bodyLength = this.lengthY / 10 * 3;
         const bodyTopY = headY + headHeight;
         const bodyY2 = bodyTopY + bodyLength;
@@ -57,7 +57,7 @@ export default {
         const handLength = bodyLength * 0.14;
         const upperArmX1 = headCentreX;
         const upperArmY1 = bodyTopY + 0.26 * bodyLength;
-        const { rightArmPosition, leftArmPosition, rightLegPosition, leftLegPosition } = limbPositions.hasOwnProperty(this.expression) ? { ...limbPositions[this.expression] } : { ...limbPositions["handsDown"]};
+        const { rightArmPosition, leftArmPosition, rightLegPosition, leftLegPosition } = limbPositions.hasOwnProperty(this.expression) ? { ...limbPositions[this.expression] } : { ...limbPositions["handsDown"] };
         const [rightUpperArmX2, rightUpperArmY2] = getLineEnd(upperArmX1, upperArmY1, rightArmPosition.elbowXPercent, rightArmPosition.elbowYUp, upperArmLength);
         const [leftUpperArmX2, leftUpperArmY2] = getLineEnd(upperArmX1, upperArmY1, leftArmPosition.elbowXPercent, leftArmPosition.elbowYUp, upperArmLength);
         const [rightLowerArmX2, rightLowerArmY2] = getLineEnd(rightUpperArmX2, rightUpperArmY2, rightArmPosition.wristXPercent, rightArmPosition.wristYUp, lowerArmLength);
@@ -68,24 +68,15 @@ export default {
         const [leftUpperLegX2, leftUpperLegY2] = getLineEnd(headCentreX, bodyY2, leftLegPosition.kneeXPercent, leftLegPosition.kneeYUp, upperLegLength);
         const [rightLowerLegX2, rightLowerLegY2] = getLineEnd(rightUpperLegX2, rightUpperLegY2, rightLegPosition.ankleXPercent, rightLegPosition.ankleYUp, lowerLegLength);
         const [leftLowerLegX2, leftLowerLegY2] = getLineEnd(leftUpperLegX2, leftUpperLegY2, leftLegPosition.ankleXPercent, leftLegPosition.ankleYUp, lowerLegLength);
-
         return {
             headX,
             headY,
             headWidth,
             headHeight,
-            beanieSquareX: headX + headWidth / 2,
             beanieFoldX: this.minimumX + this.lengthX / 40,
             beanieFoldY,
-            beanieStripe1Y: beanieFoldY + beanieStripeHeight,
-            beanieStripe2Y: beanieFoldY + beanieStripeHeight * 3,
             beanieFoldHeight,
-            beanieStripeHeight,
             beanieFoldWidth: this.lengthX / 40 * 38,
-            beanieEllipseRadiusX: this.lengthX / 15 * 12 / 2,
-            beanieCentreX: headCentreX,
-            beanieEllipseCentreY: beanieFoldY + beanieFoldHeight * 2 / 20,
-            beanieEllipseRadiusY: beanieFoldHeight * 12 / 20,
             bodyX1: headCentreX,
             bodyX2: headCentreX,
             bodyY1: bodyTopY,
@@ -112,12 +103,9 @@ export default {
             rightLowerLegY2,
             leftLowerLegX2,
             leftLowerLegY2,
-
-            // beanieSquareY: 20,
-            // beanieSquareWidth: 16,
-
-        }
-    }
+        };
+    },
+    components: { Beanie }
 }
 </script>
 
@@ -125,38 +113,29 @@ export default {
     <rect class="stick-head" :x="headX" :y="headY" stroke="black" :height="headHeight" :width="headWidth" rx="15"
         stroke-width="2" fill="transparent">
     </rect>
-    <rect class="beanie-fold" :x="beanieFoldX" :y="beanieFoldY" :height="beanieFoldHeight" :width="beanieFoldWidth"
-        rx="8" :fill="beanieColor"></rect>
-    <ellipse class="beanie-ellipse" :cx="beanieCentreX" :cy="beanieEllipseCentreY" :rx="beanieEllipseRadiusX"
-        :ry="beanieEllipseRadiusY" :fill="beanieColor"></ellipse>
-    <rect class="beanie-stripe" :x="beanieFoldX" :y="beanieStripe1Y" :height="beanieStripeHeight"
-        :width="beanieFoldWidth" rx="2" :fill="beanieStripeColor"></rect>
-    <rect class="beanie=stripe" :x="beanieFoldX" :y="beanieStripe2Y" :height="beanieStripeHeight"
-        :width="beanieFoldWidth" rx="2" :fill="beanieStripeColor"></rect>
-    <!-- <rect :x="beanieSquareX" :y="beanieSquareY" :width="beanieSquareWidth" :height="beanieSquareWidth"
-        :transform="`rotate(45 ${beanieSquareX + beanieSquareWidth / 2} ${beanieSquareY + beanieSquareWidth / 2})`"
-        :fill="beanieStripeColor">
-    </rect> -->
-    <line stroke-linejoin="round" class="stick-torso" :x1="bodyX1" :y1="bodyY1" :x2="bodyX2" :y2="bodyY2" stroke-width="2" stroke="black">
+    <Beanie :foldX="beanieFoldX" :foldY="beanieFoldY" :foldWidth="beanieFoldWidth" :foldHeight="beanieFoldHeight"
+        :stripeColor="beanieStripeColor" :baseColor="beanieColor" />
+    <line stroke-linejoin="round" class="stick-torso" :x1="bodyX1" :y1="bodyY1" :x2="bodyX2" :y2="bodyY2"
+        stroke-width="2" stroke="black">
     </line>
-    <line stroke-linejoin="round" class="stick-upper-arm-right" :x1="upperArmX1" :y1="upperArmY1" :x2="rightUpperArmX2" :y2="rightUpperArmY2"
-        stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-upper-arm-left" :x1="upperArmX1" :y1="upperArmY1" :x2="leftUpperArmX2" :y2="leftUpperArmY2"
-        stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-lower-arm-right" :x1="rightUpperArmX2" :y1="rightUpperArmY2" :x2="rightLowerArmX2"
-        :y2="rightLowerArmY2" stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-lower-arm-left" :x1="leftUpperArmX2" :y1="leftUpperArmY2" :x2="leftLowerArmX2"
-        :y2="leftLowerArmY2" stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-hand-right" :x1="rightLowerArmX2" :y1="rightLowerArmY2" :x2="rightHandX2" :y2="rightHandY2"
-        stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-hand-left" :x1="leftLowerArmX2" :y1="leftLowerArmY2" :x2="leftHandX2" :y2="leftHandY2"
-        stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-upper-leg-right" :x1="bodyX1" :y1="bodyY2" :x2="rightUpperLegX2" :y2="rightUpperLegY2"
-        stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-upper-leg-left" :x1="bodyX1" :y1="bodyY2" :x2="leftUpperLegX2" :y2="leftUpperLegY2"
-        stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-lower-leg-right" :x1="rightUpperLegX2" :y1="rightUpperLegY2" :x2="rightLowerLegX2"
-        :y2="rightLowerLegY2" stroke-width="2" stroke="black"></line>
-    <line stroke-linejoin="round" class="stick-lower-leg-left" :x1="leftUpperLegX2" :y1="leftUpperLegY2" :x2="leftLowerLegX2"
-        :y2="leftLowerLegY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-upper-arm-right" :x1="upperArmX1" :y1="upperArmY1" :x2="rightUpperArmX2"
+        :y2="rightUpperArmY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-upper-arm-left" :x1="upperArmX1" :y1="upperArmY1" :x2="leftUpperArmX2"
+        :y2="leftUpperArmY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-lower-arm-right" :x1="rightUpperArmX2" :y1="rightUpperArmY2"
+        :x2="rightLowerArmX2" :y2="rightLowerArmY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-lower-arm-left" :x1="leftUpperArmX2" :y1="leftUpperArmY2"
+        :x2="leftLowerArmX2" :y2="leftLowerArmY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-hand-right" :x1="rightLowerArmX2" :y1="rightLowerArmY2" :x2="rightHandX2"
+        :y2="rightHandY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-hand-left" :x1="leftLowerArmX2" :y1="leftLowerArmY2" :x2="leftHandX2"
+        :y2="leftHandY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-upper-leg-right" :x1="bodyX1" :y1="bodyY2" :x2="rightUpperLegX2"
+        :y2="rightUpperLegY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-upper-leg-left" :x1="bodyX1" :y1="bodyY2" :x2="leftUpperLegX2"
+        :y2="leftUpperLegY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-lower-leg-right" :x1="rightUpperLegX2" :y1="rightUpperLegY2"
+        :x2="rightLowerLegX2" :y2="rightLowerLegY2" stroke-width="2" stroke="black"></line>
+    <line stroke-linejoin="round" class="stick-lower-leg-left" :x1="leftUpperLegX2" :y1="leftUpperLegY2"
+        :x2="leftLowerLegX2" :y2="leftLowerLegY2" stroke-width="2" stroke="black"></line>
 </template>

@@ -13,7 +13,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: #ddd;
-    font-family: Montserrat;
+    font-family: Quicksand;
     font-size: 16px;
 }
 </style>

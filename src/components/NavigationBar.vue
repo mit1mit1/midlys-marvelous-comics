@@ -1,11 +1,11 @@
 <script>
-import { getComicNumber, setComicNumber, maxComicNumber } from "../utils/comicNumber";
+import { getComicNumber, setComic, comicList } from "../utils/comicNumber";
 export default {
     data() {
         return {
             getComicNumber,
-            setComicNumber,
-            maxComicNumber,
+            setComic,
+            comicList,
         }
     }
 }
@@ -13,11 +13,11 @@ export default {
 
 <template>
     <div class="nav-bar">
-        <button :onclick="() => setComicNumber(1)">&lt; &lt; First</button>
-        <button :onclick="() => setComicNumber(getComicNumber() - 1)">&lt; Prev</button>
-        <button :onclick="() => setComicNumber(Math.floor(1 + Math.random() * (maxComicNumber)))">Random</button>
-        <button :onclick="() => setComicNumber(getComicNumber() + 1)">Next ></button>
-        <button :onclick="() => setComicNumber(maxComicNumber)">Last > ></button>
+        <button :onclick="() => setComic(0)">&lt; &lt; First</button>
+        <button :onclick="() => setComic(getComicNumber() - 1)">&lt; Prev</button>
+        <button :onclick="() => setComic(Math.floor(Math.random() * comicList.length))">Random</button>
+        <button :onclick="() => setComic(getComicNumber() + 1)">Next ></button>
+        <button :onclick="() => setComic(comicList.length - 1)">Last > ></button>
     </div>
 </template>
 
