@@ -5,6 +5,7 @@ import ComicBox from '../components/ComicBox.vue';
 import AfterComicBox from '../components/AfterComicBox.vue';
 import ComicTitle from '../components/ComicTitle.vue';
 import NavigationBar from '../components/NavigationBar.vue';
+import { availableLimbPositions } from "../limbPositions";
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import NavigationBar from '../components/NavigationBar.vue';
   <NavigationBar />
   <ComicBox>
     <Panel>
-      <BeanieMan :minimumX="70" :minimumY="50" expression="leftHandWave" />
+      <BeanieMan :minimumX="70" :minimumY="50" :limbPositions="availableLimbPositions.leftHandWave" />
       <text x="185" y="100">HEY THERE!</text>
       <text x="185" y="140">IF YOU'RE WONDERING</text>
       <text x="185" y="180">WHO THE STRANGE,</text>
@@ -22,7 +23,7 @@ import NavigationBar from '../components/NavigationBar.vue';
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="50" :minimumY="50" expression="rightHandPointUp" />
+      <BeanieMan :minimumX="50" :minimumY="50" :limbPositions="availableLimbPositions.rightHandPointUp" />
       <text x="185" y="100">IF YOU'RE WONDERING</text>
       <text x="185" y="140">WHAT "MITT" IS, THAT</text>
       <text x="185" y="180">WOULD BE "MIDLY'S</text>
@@ -31,7 +32,7 @@ import NavigationBar from '../components/NavigationBar.vue';
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="50" :minimumY="50" expression="handsDown" />
+      <BeanieMan :minimumX="50" :minimumY="50" :limbPositions="availableLimbPositions.handsDown" />
       <text x="185" y="100">AN "IDEOLOGY" IS A</text>
       <text x="185" y="140">BUNCH OF IDEAS</text>
       <text x="185" y="180">SOMEONE BELIEVES.</text>
@@ -44,7 +45,7 @@ import NavigationBar from '../components/NavigationBar.vue';
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="70" :minimumY="50" expression="shrug" />
+      <BeanieMan :minimumX="70" :minimumY="50" :limbPositions="availableLimbPositions.shrug" />
       <text x="205" y="100">OF COURSE, JUST</text>
       <text x="205" y="140">LIKE A CHATBOT</text>
       <text x="205" y="180">TRYING TO PASS</text>
@@ -55,7 +56,7 @@ import NavigationBar from '../components/NavigationBar.vue';
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="70" :minimumY="50" expression="excited" />
+      <BeanieMan :minimumX="70" :minimumY="50" :limbPositions="availableLimbPositions.excited" />
       <text x="205" y="100">TO THAT END,</text>
       <text x="205" y="140">FEEDBACK IS VERY</text>
       <text x="205" y="180">WELCOME! COMICS WILL</text>
@@ -67,7 +68,7 @@ import NavigationBar from '../components/NavigationBar.vue';
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="70" :minimumY="50" expression="handsDown" />
+      <BeanieMan :minimumX="70" :minimumY="50" :limbPositions="availableLimbPositions.handsDown" />
       <text x="205" y="100">ALSO, IF I MAKE ANY</text>
       <text x="205" y="140">CHANGES TO THE</text>
       <text x="205" y="180">COMICS IN LIGHT OF</text>
@@ -78,7 +79,7 @@ import NavigationBar from '../components/NavigationBar.vue';
     </Panel>
 
     <Panel>
-      <BeanieMan :minimumX="55" :minimumY="160" :lengthX="75" :lengthY="300" expression="rightHandWave" />
+      <BeanieMan :minimumX="55" :minimumY="160" :lengthX="75" :lengthY="300" :limbPositions="availableLimbPositions.rightHandWave" />
       <text x="170" y="100">WITH THAT, ENJOY! I'M</text>
       <text x="170" y="140">A BIG FAN OF GETTING</text>
       <text x="170" y="180">DIFFERENT SIDES TO</text>

@@ -1,4 +1,4 @@
-export const limbPositions = {
+export const availableLimbPositions = {
   leftArmComment: {
     leftArmPosition: {
       elbowXPercent: -0.3,
@@ -91,7 +91,6 @@ export const limbPositions = {
       ankleYUp: false,
     },
   },
-
 
   rightHandWave: {
     leftArmPosition: {
@@ -295,6 +294,36 @@ export const limbPositions = {
       wristYUp: false,
       fingertipXPercent: 0.2,
       fingertipYUp: true,
+    },
+    leftLegPosition: {
+      kneeXPercent: -0.3,
+      kneeYUp: false,
+      ankleXPercent: -0.2,
+      ankleYUp: false,
+    },
+    rightLegPosition: {
+      kneeXPercent: 0.3,
+      kneeYUp: false,
+      ankleXPercent: 0.2,
+      ankleYUp: false,
+    },
+  },
+  rightHandPointingSouthEast: {
+    leftArmPosition: {
+      elbowXPercent: -0.45,
+      elbowYUp: false,
+      wristXPercent: -0.3,
+      wristYUp: false,
+      fingertipXPercent: -0.2,
+      fingertipYUp: false,
+    },
+    rightArmPosition: {
+      elbowXPercent: 0.4,
+      elbowYUp: false,
+      wristXPercent: 0.8,
+      wristYUp: false,
+      fingertipXPercent: 0.96,
+      fingertipYUp: false,
     },
     leftLegPosition: {
       kneeXPercent: -0.3,
