@@ -127,6 +127,6 @@ import { availableLimbPositions } from '../limbPositions';
   <NavigationBar />
   <AfterComicBox>
     <p>Join the discussion at <a
-        href="https://www.reddit.com/r/mitt_comics/comments/wxv4ah/comic_2_sydney_evangelicals/">Reddit</a>.</p>
+        href="https://www.reddit.com/r/mitt_comics/comments/wxv4ah/comic_2_sydney_evangelicals_what/">Reddit</a>.</p>
   </AfterComicBox>
 </template>

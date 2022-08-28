@@ -1,6 +1,6 @@
 <script setup>
 import Intro from './comics/Intro.vue';
-import SydneyEvangelical from './comics/SydneyEvangelical.vue';
+import SydneyEvangelicalWhat from './comics/SydneyEvangelicalWhat.vue';
 import { getComicNumber, comicList } from './utils/comicNumber';
 const comicNumber = getComicNumber();
 function data() {
@@ -12,7 +12,7 @@ function data() {
     <main>
         <h1>MITT COMICS</h1>
         <Intro v-if="comicNumber == comicList.indexOf('intro')" />
-        <SydneyEvangelical v-else-if="comicNumber == comicList.indexOf('sydney_evangelical')" />
+        <SydneyEvangelicalWhat v-else-if="comicNumber == comicList.indexOf('sydney_evangelical_what')" />
         <div v-else>Sorry, no comic at this address.</div>
     </main>
 </template>
