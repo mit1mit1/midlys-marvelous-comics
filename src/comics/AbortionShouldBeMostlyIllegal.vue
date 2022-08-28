@@ -9,14 +9,14 @@ import { availableLimbPositions } from '../limbPositions';
 </script>
 
 <template>
-  <ComicTitle>Effective Altruism: What</ComicTitle>
+  <ComicTitle>Abortions Should Be Mostly Illegal</ComicTitle>
   <NavigationBar />
   <ComicBox>
     <Panel>
       <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360"
         :limbPositions="availableLimbPositions.handsFolded" beanieColor="#44d" beanieStripeColor="#bbb" />
-      <text x="170" y="100">EARN TO GIVE BUT ALSO</text>
-      <text x="170" y="140">OTHER STUFF.</text>
+      <text x="170" y="100">FROM THE DEFINITION OF</text>
+      <text x="170" y="140">LIFE AND IT'S VALUE.</text>
     </Panel>
   </ComicBox>
   <NavigationBar />

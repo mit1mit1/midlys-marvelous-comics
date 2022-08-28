@@ -1,4 +1,10 @@
-export const comicList = ["intro"];
+export const comicList = [
+  "intro",
+  "sydney_evangelical_what",
+  "sydney_evangelical_why",
+  "effective_altruism_what",
+  "effective_altruism_why",
+];
 
 export const getComicNumber = () => {
   const comicParam = new URLSearchParams(window.location.search).get("comic");
