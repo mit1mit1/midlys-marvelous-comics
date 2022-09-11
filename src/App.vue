@@ -4,7 +4,7 @@ import EffectiveAltruismWhy from './comics/EffectiveAltruismWhy.vue';
 import IntroComic from './comics/IntroComic.vue';
 import SydneyEvangelicalWhat from './comics/SydneyEvangelicalWhat.vue';
 import SydneyEvangelicalWhy from './comics/SydneyEvangelicalWhy.vue';
-import { getComicNumber } from './vue-comic-components/src/utils/comicNumber';
+import { getComicNumber } from './vue-comic-components/utils/comicNumber';
 const comicList = ['intro', 'sydney_evangelical_what',
     'sydney_evangelical_why',
     'effective_altruism_what',
