@@ -7,7 +7,7 @@ import ComicTitle from '../vue-comic-components/components/ComicTitle.vue';
 import NavigationBar from '../vue-comic-components/components/NavigationBar.vue';
 import BibleFigure from '../vue-comic-components/svgs/BibleFigure.vue';
 import ManFigure from '../vue-comic-components/svgs/ManFigure.vue';
-import { availableLimbPositions } from '../vue-comic-components/constants/limbPositions';
+import { availableLimbPositions } from '../vue-comic-components/svgs/constants/limbPositions';
 import { toRefs } from "vue";
 const props = defineProps<{
   comicList: Array<string>;
