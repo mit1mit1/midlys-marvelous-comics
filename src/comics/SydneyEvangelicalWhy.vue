@@ -14,13 +14,13 @@ const { comicList } = toRefs(props);
 </script>
 
 <template>
-  <ComicTitle>Sydney Evangelicals: Why</ComicTitle>
+  <ComicTitle>Sydney Evangelicals: Why (to be written)</ComicTitle>
   <NavigationBar :comicList="comicList" />
   <ComicBox>
     <PanelBox>
       <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360"
         :limbPositions="availableLimbPositions.handsFolded" beanieBaseColor="#44d" beanieStripeColor="#bbb" />
-      <text x="170" y="100">TWO CAMPS HERE, BROADLY.</text>
+      <text x="170" y="100">TWO MAIN CAMPS HERE:</text>
       <text x="170" y="140">1. PRESUPPOSITIONAL</text>
       <text x="170" y="180">2. EVIDENTIALIST</text>
     </PanelBox>

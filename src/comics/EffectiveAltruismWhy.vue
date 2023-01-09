@@ -14,13 +14,13 @@ const { comicList } = toRefs(props);
 </script>
 
 <template>
-  <ComicTitle>Effective Altruism: Why</ComicTitle>
+  <ComicTitle>Effective Altruism: Why (to be written)</ComicTitle>
   <NavigationBar :comicList="comicList" />
   <ComicBox>
     <PanelBox>
       <BeanieMan :minimumX="60" :minimumY="110" :lengthX="90" :lengthY="360"
         :limbPositions="availableLimbPositions.handsFolded" beanieBaseColor="#44d" beanieStripeColor="#bbb" />
-      <text x="170" y="100">DROWNING CHILD</text>
+      <text x="170" y="100">DROWNING CHILD, ETC.</text>
     </PanelBox>
   </ComicBox>
   <NavigationBar :comicList="comicList" />
