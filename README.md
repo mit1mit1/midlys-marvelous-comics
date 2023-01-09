@@ -1,10 +1,6 @@
 # midlys-comics
 
-View the comics at https://mit1mit1.github.io/midlys-marvelous-comics/dist/index.html. This project was set up with Vite - so far, it's pretty fun.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+View the comics at [mit1mit1.github.io/midlys-marvelous-comics](https://mit1mit1.github.io/midlys-marvelous-comics/dist/). This project was set up with Vite - so far, it's pretty fun.
 
 ## Project Setup
 
